@@ -24,7 +24,7 @@ var hangMan = {
         
         wordToGuess = hangMan.randomWord[Math.floor(Math.random() * hangMan.randomWord.length)];
         wordToGuess = wordToGuess.toLowerCase();
-        txtWordToGuess.textContent=wordToGuess; 
+  //      txtWordToGuess.textContent=wordToGuess; 
         
         txtWins.textContent=hangMan.wins;
         
@@ -45,9 +45,6 @@ var hangMan = {
 } // hangMan
 
 
-
-
-
 // Chose word from possible words and convert to lower case
 var wordToGuess = hangMan.randomWord[Math.floor(Math.random() * hangMan.randomWord.length)];
 var txtWordToGuess =document.getElementById("_wordToGuess");
@@ -64,7 +61,10 @@ document.addEventListener("DOMContentLoaded", function() {
     hangMan.resetGame();
     });
 
+
+
 document.onkeyup = function(event) {
+
     var UserGuess = event.key;
     if (hangMan.isLetter(UserGuess)){
         UserGuess = UserGuess.toLowerCase();
@@ -90,11 +90,11 @@ document.onkeyup = function(event) {
                 if(tempWord==wordToGuess){
                     hangMan.wins=hangMan.wins+1;
                     txtWins.textContent=hangMan.wins;
-          //          hangMan.guessesRemaining=0;
-                    alert("YOU WIN")
-                    setTimeout(() => {
-                        hangMan.resetGame();    
-                    }, 1000);
+         
+                    $("#_winsRow").css({
+                        "background-color": 'green',
+                        "color" : "white"
+                    });
            
                  }
             }
@@ -105,15 +105,42 @@ document.onkeyup = function(event) {
             if (hangMan.guessesRemaining == 0) {
                 hangMan.losses=hangMan.losses+1;
                 txtLosses.textContent=hangMan.losses;                
-                alert("GAME OVER");
-                hangMan.resetGame();
+     
+                $("#_lossesRow").css({
+                    "background-color": 'red',
+                    "color" : "white"
+                });
+
             }
         }
      
         } // end 
     }  //end check for is letter
-  //  else {
-  //      console.log("Not a letter");
-  //  }
 } // End document.onkeyup...
 
+$("#newWord").on("click", function() {
+    hangMan.resetGame();
+    $("#_lossesRow").css({
+        "background-color": 'rgb(0, 145, 145',
+        "color" : "white"
+    });
+    $("#_winsRow").css({
+        "background-color": 'rgb(0, 145, 145',
+        "color" : "white"
+    });
+});
+
+$("#newGame").on("click", function() {
+     hangMan.resetGame();
+     txtWins.textContent=hangMan.wins=0;
+     txtLosses.textContent=hangMan.losses=0;
+     $("#_lossesRow").css({
+        "background-color": 'rgb(0, 145, 145',
+        "color" : "white"
+    });
+    $("#_winsRow").css({
+        "background-color": 'rgb(0, 145, 145',
+        "color" : "white"
+    });
+
+ });

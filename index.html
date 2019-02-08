@@ -5,25 +5,25 @@
         <title>Political Hangman</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     </head>
 
 <body>
 
-<heading>
-    <nav class="navbar navbar-light bg-light">
-        <span class="navbar-brand mx-auto">State Capital Hang Man!</span>
+<header>
+    <nav class="navbar">
+        <span id="game" class="navbar-brand mx-auto">State Capital Hang Man!</span>
     </nav>
+</header>
 
-</heading>
-
-<div class="container">
+<div class="container rounded">
     <div class="mainContainer">
     <div class="row">
-        <div class="col-sm-3">
-        </div>
-        <div class="col-sm-8">
-            <p>The word is : <span id="_wordToGuess"></span></p>
+        <div class="col-sm-12 text-sm-left">
+            <p class="text-center">Press any key to start guessing the state capital!<span id="_wordToGuess"></span></p>
+            <br>
         </div>
     </div>
 
@@ -31,7 +31,7 @@
         <div class="col-sm-3">        
         </div>
         <div class="col-sm-8">
-            <p>Letters guess so far : <span id="_lettersGuessed"></span></p>
+            <p>Letters guessed : <span id="_lettersGuessed"></span></p>
         </div>
     </div>
 
@@ -54,18 +54,30 @@
     <div class="row">
         <div class="col-sm-3">        
         </div>
-        <div class="col-sm-8">
-            <p>Wins : <span id="_wins"></span></p>
+        <div class="col-sm-3">
+            <p id="_winsRow">Wins : <span id="_wins"></span></p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-3">        
         </div>
-        <div class="col-sm-8"> 
-            <p>Losses : <span id="_losses"></span></p>
+        <div class="col-sm-3"> 
+            <p id="_lossesRow">Losses : <span id="_losses"></span></p>
         </div>
     </div>
+    <div class="row" id="Buttons">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-3">
+                <button type="button" class="btn btn-lg" id="newWord">New Word</button>
+            </div>
+            <div class="col-sm-3">
+                <button type="button" class="btn btn-lg" id="newGame">New Game</button>
+            </div>
+
+    </div>
+
 </div>
 
 
