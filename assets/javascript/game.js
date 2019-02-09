@@ -104,6 +104,7 @@ document.onkeyup = function(event) {
             txtGuessesRemaining.textContent = hangMan.guessesRemaining;
             if (hangMan.guessesRemaining == 0) {
                 hangMan.losses=hangMan.losses+1;
+                txtWordUncovered.textContent=wordToGuess;
                 txtLosses.textContent=hangMan.losses;                
      
                 $("#_lossesRow").css({
