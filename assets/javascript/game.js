@@ -105,7 +105,8 @@ document.onkeyup = function(event) {
             if (hangMan.guessesRemaining == 0) {
                 hangMan.losses=hangMan.losses+1;
                 txtWordUncovered.textContent=wordToGuess;
-                txtLosses.textContent=hangMan.losses;                
+                txtLosses.textContent=hangMan.losses;   
+                wordToGuess="!123";             
      
                 $("#_lossesRow").css({
                     "background-color": 'red',
